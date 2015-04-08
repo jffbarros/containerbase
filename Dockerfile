@@ -10,4 +10,6 @@ RUN apt-get update \
     && alien -i oracleinstantclient.rpm
     && alien -i oraclesdk.rpm
     && cd /usr/lib/pkgconfig/ && curl -o oci8.pc https://raw.githubusercontent.com/jffbarros/testegolangdockeroracle/master/oci8.pc
-	&& go get -u github.com/mattn/go-oci8
+    && ENV LD_LIBRARY_PATH /usr/lib:/usr/local/lib:/usr/instantclient_12_1
+	&& ENV PKG_CONFIG_PATH /usr/lib/pkgconfig/oci8.pc
+    && go get -u github.com/mattn/go-oci8
