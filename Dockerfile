@@ -2,10 +2,10 @@
 # and a workspace (GOPATH) configured at /go.
 FROM golang
 
-RUN apt-get update \
-    && apt-get install -y pkg-config
-    && apt-get install -y alien
-    && apt-get install -y libaio1
+RUN apt-get update
+RUN apt-get install -y pkg-config
+RUN apt-get install -y alien
+RUN apt-get install -y libaio1
 
 RUN wget  --no-check-certificate https://googledrive.com/host/0B1Or3zIP-XLuYVhNZmthQVBTbzQ -O oracleinstantclient.rpm 
 RUN wget  --no-check-certificate https://googledrive.com/host/0B1Or3zIP-XLuNlJ6S2ZBZkZ6MTQ -O oraclesdk.rpm
